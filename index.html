@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>VLC Web Interface</title>
+    <script type="text/javascript">
+        if ( !('WebSocket' in window) || (!!document.createElement('video').canPlayType())) {
+            alert('Your web browser is not supported');
+            document.location = '/old/';
+        }
+    </script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/css/vlc.css">
+</head>
+<body>
+    <header>
+         <div id="player">
+            <button class="left icon" id="backward"></button><div class="button-mask"><button class="round icon" id="play"></button></div><button class="right icon" id="forward"></button>
+
+            <button class="left icon" id="stop"></button><button class="middle icon" id="repeat"></button><button class="right icon" id="shuffle"></button>
+
+            <div id="seekBar">
+                <progress value="50" max="100"></progress>
+                <input type="range">
+            </div>
+
+            <input id="volumeBar" type="range">
+            <button class="left right icon" id="fullscreen"></button>
+         </div>
+        
+        <nav>
+            <ul>
+                <li class="active">Browse files</li>
+                <li>Video stream</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="steam" class="">
+        <video>
+            <source src="stream.ogg" type="video/ogg">
+            <source src="stream.mp4" type="video/mp4">
+        </video>
+    </section>
+    
+    <section id="files" class="active">
+        <ul>
+            <li class="folder"></li>
+            <li class="tree">
+                <ul>
+                    <li>toto.mkv</li>
+                    <li>titi.avi</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
